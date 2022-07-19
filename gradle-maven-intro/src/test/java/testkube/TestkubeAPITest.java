@@ -9,10 +9,13 @@ import static org.hamcrest.Matchers.*;
 
 public class TestkubeAPITest {
 
+    private static final String apiURI = "https://demo.testkube.io/results/v1";
+
+
     @Test 
     void hasAtLeastOneLabel() {
         given()
-            .baseUri("https://demo.testkube.io/results/v1")
+            .baseUri(apiURI)
         .when()
             .get("/labels")
         .then()
@@ -26,7 +29,7 @@ public class TestkubeAPITest {
     @Test 
     void hasSomeExecutions() {
         given()
-            .baseUri("https://demo.testkube.io/results/v1")
+            .baseUri(apiURI)
         .when()
             .get("/executions")
         .then()
