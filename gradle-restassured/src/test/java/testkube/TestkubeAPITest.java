@@ -39,5 +39,18 @@ public class TestkubeAPITest {
 
     }
 
+    @Test 
+    void apiIsBlazinglyFast() {
+        given()
+            .baseUri(apiURI)
+        .when()
+            .get("/executions")
+        .then()
+            .assertThat()
+            .time(lessThan(10L)) 
+            ;
+
+    }
+
 
 }
