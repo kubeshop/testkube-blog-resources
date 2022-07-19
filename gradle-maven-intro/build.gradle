@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    intTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    testImplementation 'io.rest-assured:rest-assured:4.5.1'
+}
+
+group = 'testkube'
+version = '1.0'
+
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
