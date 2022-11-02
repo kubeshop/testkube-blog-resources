@@ -47,7 +47,7 @@ public class TestkubeAPITest {
             .get("/executions")
         .then()
             .assertThat()
-            .time(lessThan(10L)) 
+            .time(lessThan(1000L)) 
             ;
 
     }
